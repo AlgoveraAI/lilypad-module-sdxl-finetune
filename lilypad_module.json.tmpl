@@ -16,7 +16,7 @@
             },
             "Docker": {
                 "EnvironmentVariables": [
-                    "{{if .SeedEnv}}{{.SeedEnv}}{{else}}\"RANDOM_SEED=42\"{{end}}"
+                    {{if .SeedEnv}}{{.SeedEnv}}{{else}}"RANDOM_SEED=42"{{end}},
                 ],
                 "Entrypoint": [
                     "bash", "-c", "sh /app/train.sh /input /output 'a photo of a sks dog' 200"
@@ -43,11 +43,11 @@
             },
             "inputs": [
                 {
-                    "CID": "{{.ImagesCID}}",
-                    "Name": "lora_input",
+                    "CID": {{.ImagesCID}},
+                    "Name": "image_input",
                     "StorageSource": "IPFS",
                     "path": "/input"
-                }
+                },
             ],
             "outputs": [
                 {
