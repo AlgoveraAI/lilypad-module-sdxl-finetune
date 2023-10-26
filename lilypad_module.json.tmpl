@@ -16,12 +16,12 @@
             },
             "Docker": {
                 "EnvironmentVariables": [
-                    {{if .SeedEnv}}{{.SeedEnv}}{{else}}"RANDOM_SEED=42"{{end}},
+                    "{{if .SeedEnv}}{{.SeedEnv}}{{else}}\"RANDOM_SEED=42\"{{end}}"
                 ],
                 "Entrypoint": [
                     "bash", "-c", "sh /app/train.sh /input /output 'a photo of a sks dog' 200"
                 ],
-                "Image": "docker.io/marshath/sdxl-finetune:v1.0
+                "Image": "docker.io/marshath/sdxl-finetune:v1.0"
             },
             "Engine": "Docker",
             "Language": {
@@ -43,11 +43,11 @@
             },
             "inputs": [
                 {
-                    "CID": {{.ImagesCID}},
+                    "CID": "{{.ImagesCID}}",
                     "Name": "lora_input",
                     "StorageSource": "IPFS",
                     "path": "/input"
-                },
+                }
             ],
             "outputs": [
                 {
